@@ -10,6 +10,7 @@ RUN   apt-get update && apt-get install -y --no-install-recommends \
       libpng-dev \
       libjpeg-dev \
       libfreetype6-dev \
+      libxslt-dev \
       vim \
       git \
       wget \
