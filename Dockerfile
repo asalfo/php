@@ -2,7 +2,7 @@ From php:7.2.8-apache
 MAINTAINER Salif Guigma <salif.guigma@gmail.com>
 ARG PHPUNIT_VERSION=phpunit-7.2.6.phar
 ARG ICU4C_VERSION=icu4c/62.1/icu4c-62_1-src.tgz
-RUN   apt-get update && apt-get install -y --no-install-recommends \
+RUN  apt-get update && apt-get install -y --no-install-recommends \
       apt-utils \
       libicu-dev \
       zlib1g-dev \
@@ -16,6 +16,11 @@ RUN   apt-get update && apt-get install -y --no-install-recommends \
       wget \
       gnupg \
       clang \
+      apt-transport-https \
+      ca-certificates \
+      &&  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
+      && echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list \
+      &&  apt-get update && apt-get install -y yarn \
       && curl -sL https://deb.nodesource.com/setup_10.x | bash -\
       && apt-get install -y nodejs \
       && apt-get clean \
