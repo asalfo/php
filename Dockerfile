@@ -2,7 +2,6 @@ FROM php:7.2.8-apache
 MAINTAINER Salif Guigma <salif.guigma@gmail.com>
 ARG PHPUNIT_VERSION=phpunit-7.2.6.phar
 ARG ICU4C_VERSION=icu4c/62.1/icu4c-62_1-src.tgz
-COPY sites-available/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN  apt-get update && apt-get install -y --no-install-recommends \
       apt-utils \
       net-tools \
@@ -13,6 +12,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       libjpeg-dev \
       libfreetype6-dev \
       libxslt-dev \
+      sudo \
       vim \
       git \
       wget \
