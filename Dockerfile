@@ -60,7 +60,8 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && usermod -u 1000 www-data \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
-      && useradd tester  -p tester \
+      && useradd tester \
       && usermod -aG sudo tester \
+      && echo 'tester ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
       && rm -rf /tmp/*
 WORKDIR /var/www/html
