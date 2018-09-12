@@ -60,7 +60,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && usermod -u 1000 www-data \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
-      && useradd tester \
+      && useradd tester  -p tester \
       && usermod -aG sudo tester \
       && rm -rf /tmp/*
 WORKDIR /var/www/html
