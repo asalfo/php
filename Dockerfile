@@ -38,6 +38,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
       && docker-php-ext-install -j$(nproc) gd \
       && a2enmod rewrite \
+      && a2enmod ssl
       && pecl install xdebug \
       && docker-php-ext-enable xdebug \
       && pecl install apcu \
@@ -60,8 +61,10 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && usermod -u 1000 www-data \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
-      && useradd tester \
+      && useradd -d /home/tester tester \
       && usermod -aG sudo tester \
       && echo 'tester ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers \
       && rm -rf /tmp/*
 WORKDIR /var/www/html
+EXPOSE 80
+EXPOSE 443
