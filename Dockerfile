@@ -33,6 +33,9 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && cd /tmp/icu/source \
       && ./configure --prefix=/usr/local \
       && make && make install \
+      && wget https://dl.eff.org/certbot-auto \
+      && chmod a+x certbot-auto \
+      && mv certbot-auto /usr/local/bin \
       && docker-php-ext-configure intl --with-icu-dir=/usr/local \
       && docker-php-ext-install zip pdo pdo_mysql  mysqli  opcache intl sockets mbstring bcmath xsl \
       && docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
