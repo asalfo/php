@@ -64,6 +64,8 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && usermod -u 1000 www-data \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
+      && mkdir /var/www/.composer \
+      && chmod 777 /var/www/.composer \ 
       && rm -rf /tmp/*
 WORKDIR /var/www/html
 EXPOSE 80
