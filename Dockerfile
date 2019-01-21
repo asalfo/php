@@ -18,6 +18,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       wget \
       gnupg \
       clang \
+      unzip \
       apt-transport-https \
       ca-certificates \
       &&  curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - \
@@ -65,7 +66,7 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
       && mkdir /var/www/.composer \
-      && chmod 777 /var/www/.composer \ 
+      && chmod 777 /var/www/.composer \
       && rm -rf /tmp/*
 WORKDIR /var/www/html
 EXPOSE 80
