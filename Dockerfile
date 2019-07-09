@@ -1,4 +1,4 @@
-FROM php:7.2.8-apache
+FROM php:7.3.6-apache
 MAINTAINER Salif Guigma <salif.guigma@gmail.com>
 ARG PHPUNIT_VERSION=phpunit-7.2.6.phar
 ARG ICU4C_VERSION=icu4c/62.1/icu4c-62_1-src.tgz
