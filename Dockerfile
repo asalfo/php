@@ -65,6 +65,8 @@ RUN  apt-get update && apt-get install -y --no-install-recommends \
       && echo "xdebug.remote_enable=On" >> $PHP_INI_DIR/conf.d/xdebug.ini \
       && echo "xdebug.remote_autostart=1" >> $PHP_INI_DIR/conf.d/xdebug.ini \
       && echo "xdebug.remote_port=9000" >> $PHP_INI_DIR/conf.d/xdebug.ini \
+      && echo "xdebug.remote_connect_back=1" >> $PHP_INI_DIR/conf.d/xdebug.ini \
+      && echo "xdebug.remote_log=/usr/local/etc/php/xdebug.log" >> $PHP_INI_DIR/conf.d/xdebug.ini \
       && usermod -u 1000 www-data \
       && groupmod -g 1000 www-data \
       && usermod -s /bin/bash www-data \
