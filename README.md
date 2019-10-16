@@ -1,1 +1,1 @@
-# Dockerfile for php
+# Dockerfile for php only for developement.
